@@ -2,8 +2,8 @@
 # Reinforcement Learning
 ## Project: Train a Smartcab How to Drive
 
-![](/images/GUI_screenshot.png)
-![](/images/optimized_Q_learning_results.png)
+![](./images/GUI_screenshot.png)
+![](./images/optimized_Q_learning_results.png)
 
 ### description
 

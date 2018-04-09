@@ -3,3 +3,7 @@
 *.DS_Store
 *.command
 *__pycache__*
+*.bat
+/dog-project/dogImages/
+/dog-project/lfw/
+/dog-project/bottleneck_features/

@@ -2,7 +2,7 @@
 
 Capstone project for Udacity Machine Learning Nanodegree
 
-![](/images_samples/813445367_187ecf080a_n.jpg)
+![](./images_samples/813445367_187ecf080a_n.jpg)
 
 ## Proposal
 

@@ -1,6 +1,15 @@
 flowers/
+<<<<<<< HEAD
 ressource.ipynb
 *.gz
 *.log
 *.aux
 *Review*.pdf
+=======
+data/
+
+ressource.ipynb
+*.bat
+*.docx
+
+>>>>>>> capstone_notebook

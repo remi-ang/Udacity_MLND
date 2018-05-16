@@ -69,7 +69,7 @@ def flowersDistBarplot(flowerTypesSets, class_names, titles=None):
         p = sns.barplot(x=class_names, y=counts)
         if show_titles:
             plt.title(titles[i], fontsize=16)
-        plt.xlabel("Variety", fontsize=14)
+        plt.xlabel("type", fontsize=14)
         plt.ylabel("Count", fontsize=14)
 
         txt_buff = round(max(counts) * 0.01) # just to leave some space over the column tip
@@ -86,7 +86,41 @@ def copy_pictures(img_paths, train_or_test, root='data', ):
     for img_path in tqdm(img_paths):
         target_path = os.path.join(root, train_or_test, *img_path.rsplit('/',2)[-2:])
         copyfile(img_path, target_path)
-		
+	
+def plotTrianingHistory(hist):
+    e = [x+1 for x in hist.epoch]
+    
+    val_loss_history = hist.history['val_loss']
+    minValLossVal = min(val_loss_history)
+    minValLossIdx = val_loss_history.index(minValLossVal)+1   
+    
+    # summarize history for accuracy
+    plt.plot(e, hist.history['acc'])
+    plt.plot(e, hist.history['val_acc'])
+    plt.title('model accuracy')
+    plt.ylabel('accuracy')
+    plt.xlabel('epoch')
+    plt.legend(['train', 'validation'], loc='upper left')
+    plt.grid()
+    plt.show()
+    # summarize history for loss
+    plt.plot(e, hist.history['loss'])
+    plt.plot(e, hist.history['val_loss'])
+    plt.plot(minValLossIdx, minValLossVal, 'or')
+    plt.annotate(
+        "epoch {}: {:.4f}".format(minValLossIdx, minValLossVal),
+        xy=(minValLossIdx, minValLossVal), xytext=(0, 20),
+        textcoords='offset points', ha='right', va='bottom',
+        bbox=dict(boxstyle='round,pad=0.5', fc='red', alpha=0.5),
+        arrowprops=dict(arrowstyle = '->', connectionstyle='arc3,rad=0'))
+    
+    plt.title('model loss')
+    plt.ylabel('loss')
+    plt.xlabel('epoch')
+    plt.legend(['train', 'validation'], loc='upper left')
+    plt.grid()
+    plt.show()
+    	
 # Support functions 
 
 def castAsList(X):

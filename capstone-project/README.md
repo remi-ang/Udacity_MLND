@@ -34,13 +34,14 @@ The original [Kaggle Flowers recognition dataset](https://www.kaggle.com/alxmama
 
 4. This project requires the following librairies:
 
-	* Python3.6
-	* NumPy
-	* Pandas
-	* Scikit-learn
-	* Keras
-	* TensorFlow
-	* OpenCV
+	* Python 3.6
+	* Matplotlib : 2.2.2
+	* Seaborn : 0.8.1
+	* NumPy: 1.13.3
+	* Scikit-learn: 0.19.0
+	* Keras: 2.0.2 (with TensorFlow backend)
+	* TensorFlow: 1.8.0
+	* OpenCV: 3.1.0
 
 5. Run the Jupyter Notebook
 

@@ -1,13 +1,11 @@
 """
 custum utilities functions
 """
-import os
 import numpy as np
 from time import time
 import cv2 
 import matplotlib.pyplot as plt
 import seaborn as sns
-from shutil import copyfile
 
 def print_list(in_list, items_name="items", max_disp = 10):
     """
@@ -18,51 +16,54 @@ def print_list(in_list, items_name="items", max_disp = 10):
     if max_disp < list_size:
         max_disp = list_size
         
-    print("{} {}:".format(list_size, items_name))
+    #logging.info("{} {}:".format(list_size, items_name))
     print("\n".join(["\to {}".format(x) for x in in_list]))
     
     if list_size > max_disp:
         print("\to ... (and {} more)".format(len(list_size) - max_disp))
 
-def plot_images(img_paths, titles=None):
+
+def plot_images(imgfile, img_paths, titles=None):
     """
-    plot images in subplots form a list of paths and optionally titles 
+    plot images in subplots form a list of paths and optionally titles
     """
-    
+
     # check that titles length match number of images
     show_titles = checkTitlesLength(titles, img_paths)
 
     # define subplots settings
     n_rows, max_img_per_row = defineNrows(img_paths)
-        
+
     plt.figure(figsize=(20, n_rows * 5))
-    
+
     for i, img_path in enumerate(img_paths):
         plt.subplot(n_rows, max_img_per_row, i+1)
         img = cv2.imread(img_path)
         cv_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         plt.imshow(cv_rgb)
         if show_titles:
-            plt.title(titles[i])     
-            
-    plt.show()
+            plt.title(titles[i])
+
+    #plt.show()
+    plt.savefig(imgfile)
+
 
 def flowersDistBarplot(flowerTypesSets, class_names, titles=None):
     """
     create flowers types distirbution barplots
     """
-    
+
     flowerTypesSets = castAsList(flowerTypesSets)
     titles = castAsList(titles)
-    
+
     # check that tiltes length match datasets length
     show_titles = checkTitlesLength(titles, flowerTypesSets)
-    
+
     # define subplots settings
     n_rows, max_img_per_row = defineNrows(flowerTypesSets)
-    
+
     plt.figure(figsize=(15,n_rows * 5))
- 
+
     for i, flowerTypesSet in enumerate(flowerTypesSets):
         _, counts = np.unique(flowerTypesSet, return_counts=True)
         plt.subplot(n_rows, max_img_per_row, i+1)
@@ -74,20 +75,12 @@ def flowersDistBarplot(flowerTypesSets, class_names, titles=None):
 
         txt_buff = round(max(counts) * 0.01) # just to leave some space over the column tip
         for i, count in enumerate(counts):
-            p.text(i, count+txt_buff, count)  
-    
-    plt.show()  
-	
-def copy_pictures(img_paths, train_or_test, root='data', ):
-    
-    assert train_or_test in ['train', 'test']
-    print("copying {}ing images in ./data/{} subdirectories...".format(train_or_test, train_or_test))
+            p.text(i, count+txt_buff, count)
 
-    for img_path in img_paths:
-        target_path = os.path.join(root, train_or_test, *img_path.rsplit('/',2)[-2:])
-        copyfile(img_path, target_path)
-	
-def plotTrianingHistory(hist):
+    plt.show()
+
+
+def plotTrianingHistory(file, hist):
     e = [x+1 for x in hist.epoch]
     
     val_loss_history = hist.history['val_loss']
@@ -119,7 +112,9 @@ def plotTrianingHistory(hist):
     plt.xlabel('epoch')
     plt.legend(['train', 'validation'], loc='upper left')
     plt.grid()
-    plt.show()
+
+    plt.savefig(file)
+
 
 def timeElapsed(start):
     delta = time() - start
@@ -128,12 +123,25 @@ def timeElapsed(start):
     s = int(delta - m*60) 
     return "time elapsed: {:02d}:{:02d}:{:02d}".format(h, m, s)
 
+
+def loadimg(path):
+    """
+    load and resize an image
+    return a (299, 299, 3) array
+    """
+    img = cv2.imread(path)
+    img_r = cv2.resize(img, (299, 299))
+    return img_r
+
+
 # Support functions 
+
 
 def castAsList(X):
     if not isinstance(X, list):
         X = [X]
     return X
+
 
 def defineNrows(X):
     if len(X) > 1:
@@ -148,6 +156,7 @@ def defineNrows(X):
         n_rows = 1  
     
     return n_rows, max_img_per_row
+
 
 def checkTitlesLength(titles, ref_list):
     show_titles = False

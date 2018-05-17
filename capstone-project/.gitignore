@@ -1,3 +1,6 @@
+.idea/
+plot/
+log/
 flowers/
 ressource.ipynb
 *.gz
@@ -9,3 +12,7 @@ ressource.ipynb
 *.bat
 *.docx
 saved_models/
+batchlog_*.txt
+proposal.zip
+flowers.zip
+

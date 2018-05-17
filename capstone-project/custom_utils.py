@@ -3,6 +3,7 @@ custum utilities functions
 """
 import os
 import numpy as np
+from time import time
 import cv2 
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -120,7 +121,14 @@ def plotTrianingHistory(hist):
     plt.legend(['train', 'validation'], loc='upper left')
     plt.grid()
     plt.show()
-    	
+
+def timeElapsed(start):
+    delta = time() - start
+    h = int(delta // 3600)
+    m = int((delta - h*3600) // 60)
+    s = int(delta - m*60) 
+    return "time elapsed: {:02d}:{:02d}:{:02d}".format(h, m, s)
+
 # Support functions 
 
 def castAsList(X):

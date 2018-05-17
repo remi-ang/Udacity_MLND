@@ -88,7 +88,7 @@ def copy_pictures(img_paths, train_or_test, root='data', ):
         target_path = os.path.join(root, train_or_test, *img_path.rsplit('/',2)[-2:])
         copyfile(img_path, target_path)
 	
-def plotTrianingHistory(hist):
+def plotTrainingHistory(hist):
     e = [x+1 for x in hist.epoch]
     
     val_loss_history = hist.history['val_loss']

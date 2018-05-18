@@ -2,10 +2,13 @@
 
 \usepackage{hyperref}
 \usepackage{graphicx}
+\usepackage[font=small,labelfont=bf]{caption}
+
+\newcommand{\fullref}[1]{\hyperref[#1]{\ref*{#1}:\ \nameref*{#1}}}
 
 %opening
 \title{Flowers Recognition}
-\author{Rémi Ang\\Udacity.com - Machine Learning Engineering Nano Degree}
+\author{R\'emi Ang\\Udacity.com - Machine Learning Engineering Nano Degree}
 
 \begin{document}
 
@@ -21,7 +24,7 @@
 
 \input{sections/05_conclusion/05_conclusion.tex}
 
-\bibliographystyle{plain}
-\bibliography{bibliography.bib}
+%\bibliographystyle{plain}
+%\bibliography{bibliography}
 
 \end{document}

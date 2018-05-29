@@ -2,21 +2,25 @@
 
 \subsection{Project Overview}
 
-Object recognition is a major discipline in the field of computer vision. The applications are numerous and varied as self-driving vehicles environment detection, skin cancer screening or reality augmented tourism.
+Object recognition is a central topic in the field of computer vision. The numerous applications can be applied in many different domains such as self-driving vehicles environment detection, skin cancer screening or reality augmented tourism.
 
 
-This project focus on the automatic recognition of flower species from pictures with potential applications such as:
+This project focus on the automatic recognition of flower species from pictures. The potential applications are:
 
 \begin{itemize}
-	\item population tracking and preservation (imagine drones taking a census of flowers in your neighborhood)
+	\setlength\itemsep{1pt}
+	\setlength{\parskip}{0pt}
+	\setlength{\parsep}{0pt}
+	\item population tracking and preservation
 	\item crop and food supply management 
 	\item toxicity detection 
-	\item Education (i.e. smartphone app for hitch-hiker and nature lovers)
+	\item education
+	\item and more...
 \end{itemize}
 
 \begin{center}
 \includegraphics[scale=1.3]{Daisy_detection.jpg}
-\captionof{figure}{it's a Daisy!}
+\captionof{figure}{application example: it's a Daisy!}
 \end{center}
 
 
@@ -32,30 +36,18 @@ The dataset used in this project is the \lq\lq{}Flowers Recognition Dataset\rq\r
 
 The zip archive is 230MB and contains about 4300 flower images (.jpg) classified in 5 classes: Daisy, Dandelion, Rose, Sunflower and Tulip.
 
-\begin{center}
-\includegraphics[scale=.2]{flowers_patchwork.png}
-\captionof{figure}{samples of "Flowers Recognition" dataset}
-\end{center}
-
-The pictures appear to have been automatically scraped from the online picture portals Klickr, Google Images and Yandex Images.
-
-
-The pictures represents single or multiple flowers under various angles, zoom, brightness conditions, life cycle stages. However, a significant number of pictures contains other subjects (persons, insects, other flowers, vase) or seem to be miss-classified. Such pictures can potentially negatively impact the training of the CNN. A more detailed approach of the selection of suitable samples is described in chapter \fullref{subsec:Data_Preprocessing} 
-
-
 \subsection{metrics}
 
-The evaluate our classification model is based on the \textit{Accuracy} $ACC$ and the \textit{Classification Cross-Entropy} $H(y, \hat{y})$ metrics defined as follows: 
-
+The evaluate our classification model is based on the \textit{Accuracy} $ACC$ and  \textit{Classification Cross-Entropy} $H(y, \hat{y})$ defined as follows: 
 
 \begin{center}
 
-	$ACC = \frac{number \ of \ correct \ predictions}{total \ number \ of \ prediction} \cdot 100$ \\
+	$ACC = \frac{number \ of \ correct \ predictions}{total \ number \ of \ prediction} \cdot 100$ \cite{sklearn_accuracy}
 
 \end{center}
 
-
 \begin{center}
-$H(y, \hat{y})=-\sum_{k=1} y_i log(\hat{y_i})$
+$H(y, \hat{y})=-\sum_{k=1} y_i log(\hat{y_i})$ \cite{cross_enropy}
+
 \end{center}
 	

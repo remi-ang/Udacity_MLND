@@ -1,4 +1,3 @@
-\newpage
 \section{Results}
 
 The VGG16 based flower classifier is trained on 50 epochs (about 45 minutes on GPU instance). According to Fig. \ref{VGG16_50e_Acc} and \ref{VGG16_50e_Loss}, the model achieve the best validation loss at epoch 33 with 0.2122. The validation accuracy stagnate at 90\% after the 10th epoch.
@@ -25,36 +24,35 @@ The model accuracy is compute by loading the best loss weights, scaling the test
 \\
 The VGG16 based flower classifier achieve an accuracy of \textbf{89.30\%} on the testing set.
 
-\captionof{program}{best weights loading and evaluation of the model accuracy}
-\begin{python}
-base_model_name = 'VGG16'
-best_weights_h5 = 'saved_models/weights.best.flowers_recognition.{}.hdf5'.format(base_model_name)
-
-# load best loss weights
-model.load_weights(best_weights_h5)	
-
-# scale test dataset
-xtest_scaled = x_test.astype('float32')/255
-
-# evaluate model accuracy
-score = model.evaluate(xtest_scaled , y_test, verbose=1)
-
-# display accuracy in stdout
-print('\nTest accuracy: {:.2f}%'.format(score[1] * 100))
-\end{python}
+%\captionof{program}{best weights loading and evaluation of the model accuracy}
+%\begin{python}
+%base_model_name = 'VGG16'
+%best_weights_h5 = 'saved_models/weights.best.flowers_recognition.{}.hdf5'.format(base_model_name)
+%
+%# load best loss weights
+%model.load_weights(best_weights_h5)	
+%
+%# scale test dataset
+%xtest_scaled = x_test.astype('float32')/255
+%
+%# evaluate model accuracy
+%score = model.evaluate(xtest_scaled , y_test, verbose=1)
+%
+%# display accuracy in stdout
+%print('\nTest accuracy: {:.2f}%'.format(score[1] * 100))
+%\end{python}
 
 \subsection{Justification}
 
 The predictions are evaluated for each sample of the test dataset:
 
-\captionof{program}{test pictures prediction}
-
-\begin{python}
-import numpy as np
-
-predictions = np.array([np.argmax(model.predict(np.expand_dims(x, axis=0))) \
-	for x in tqdm(xtest_scaled)])
-\end{python}
+%\captionof{program}{test pictures prediction}
+%\begin{python}
+%import numpy as np
+%
+%predictions = np.array([np.argmax(model.predict(np.expand_dims(x, axis=0))) \
+%	for x in tqdm(xtest_scaled)])
+%\end{python}
 
 The confusion matrix displayed in Fig. \ref{fig:output402} confirms the good performance of the model.
 
@@ -72,7 +70,14 @@ The confusion matrix displayed in Fig. \ref{fig:output402} confirms the good per
 	\label{fig:output402}
 \end{center}
 
+The expectation to reach at least 80.0\% accuracy formulated in Chapter \fullref{subsec:benchmark} is met. Because the test pictures taken to evaluate the accuracy have never been seen by the model before, this good result let us suggest that the model is able to well generalize. The test samples displayed on Fig. \ref{fig:output420} demonstrate that the model is able to correctly identify:
 
+\begin{itemize}
+	\item single flowers on the picture
+	\item multiple (two to several dozen) flowers on the same picture
+	\item flowers taken from different angles
+	\item same flower type in different life states (i.e. yellow flower and "blowball" dandelion)
+\end{itemize}
 
 
 

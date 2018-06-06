@@ -23,6 +23,8 @@ This project focus on the automatic recognition of flower species from pictures.
 \captionof{figure}{application example: it's a Daisy!}
 \end{center}
 
+Flowers recognitions is already used in mobile applications addressing for example to garden lovers or hitch-hikers \cite{best-apps}. Unfortunately neither the technology or performances of the models used in those products are publicly available. 
+However the research work on flower species identification entitled "bi-level co-segmentation method for image classification" from Yuning Chai, Andrew Zimmerman and Victor Lempitsky in 2011 \cite{Chai_BiCos}, demonstrated a robust method involving the combination of image intensive pre-processing and SVM classification training. This work is used as benchmark for this project as specified in the Chapter \fullref{subsec:benchmark}.
 
 \subsection{Problem Statement}
 
@@ -38,13 +40,15 @@ The zip archive is 230MB and contains about 4300 flower images (.jpg) classified
 
 \subsection{metrics}
 
-The evaluate our classification model is based on the \textit{Accuracy} $ACC$ and  \textit{Classification Cross-Entropy} $H(y, \hat{y})$ defined as follows: 
+In this project, we aim to build a model able to correctly classify flowers from five different classes. The trivial metrics to evaluate how good the model is at predicting the correct flowers classes is the  \textit{Accuracy} $ACC$ defined as follows: 
 
 \begin{center}
 
 	$ACC = \frac{number \ of \ correct \ predictions}{total \ number \ of \ prediction} \cdot 100$ \cite{sklearn_accuracy}
 
 \end{center}
+
+Moreover, we will use the textit{Classification Cross-Entropy} $H(y, \hat{y})$ in order to evaluate the model progression during the training and save the weights each time a new minima is reached.
 
 \begin{center}
 $H(y, \hat{y})=-\sum_{k=1} y_i log(\hat{y_i})$ \cite{cross_enropy}

@@ -34,15 +34,25 @@ On top of that, the selected pictures will be randomly split into three distinct
 
 \subsubsection{image augmentation}
 
-Image augmentation techniques will be used to enrich the training and validation sets. 
+Image augmentation will be used to enrich the training and validation sets. This technique consist in modifying the original pictures in order to artificially generate more training samples. The modifications considered in this project consist of flipping, zooming, stretching or shrinking the images.
 
-\subsubsection{Deep Convolutional Neural Network and transfer learning}
+\subsubsection{Deep Convolutional Neural Network}
 
-A deep CNN has to be trained to recognize flowers variety from pictures. Rather than designing and training a full new CNN, we will take advantage of existing reference models by applying transfer learning. The weights of all convolutional layers of the base model will be loaded and frozen as-is. The top layers will be replaced by some of our own in order to specialize the mode to flowers types recognition. 
+A deep convolutional network is a type of neural networks which architecture is designed in so called convolution layers. The principle of forward and back propagation common to neural networks remains. However the main particularity of a convolutional layer is to analyse the picture in small sub-regions and derive patterns from it. The sequencing of convolutional layers result in the identification of patterns increasingly complex. Consequently the patterns identified in the first layers are rather basic (points, stripes, lines,...) and generic to any pictures. On the contrary, the patterns identified by the last layers are more complex (objects, face attributes,...) and are specific to the problem addressed. 
 
-An important part of this project will be dedicated to determine the most suitable base model to use.
+\subsubsection{Transfer Learning}
+
+The training of a full CNN requires significant computation resources and time. However, with Transfer Learning, it is possible to use pre-trained models. This techniques presents the double advantage to spare a significant amount of training time and to benefit from the quality of very deep architectures. 
+
+Transfer learning consist of loading a pre-trained model, fix its weights, and replace the last layers in order to fit the new given problem.  
+In this project, we will determine which among three models available in \texttt{Keras} module suits the best for flower classification. Those models have been trained on the \textit{ImageNet} dataset consisting of several million of labelled images representing thousands of objects. 
+
+%A deep CNN has to be trained to recognize flowers variety from pictures. Rather than designing and training a full new CNN, we will take advantage of existing reference models by applying transfer learning. The weights of all convolutional layers of the base model will be loaded and frozen as-is. The top layers will be replaced by some of our own in order to specialize the mode to flowers types recognition. 
+
+%An important part of this project will be dedicated to determine the most suitable base model to use.
 
 \subsection{Benchmark}
+\label{subsec:benchmark}
 
 The benchmark for this project is the "Flowers Species Recognition" work from Yuning Chai, Victor Lempitsky and Andrew Zisserman from the University of Oxford in 2011 \cite{Chai_BiCos, Chai_BiCos_demo} . 
 

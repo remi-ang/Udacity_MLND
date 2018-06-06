@@ -1,0 +1,33 @@
+\begin{thebibliography}{1}
+
+\bibitem{Keras_applications}
+Keras, applications.
+\newblock \url{https://keras.io/applications/}.
+
+\bibitem{sklearn_accuracy}
+Scikit-learn, model evaluation, accuracy score.
+\newblock
+  \url{http://scikit-learn.org/stable/modules/model_evaluation.html#accuracy-score}.
+
+\bibitem{NAIN_notebook}
+A.~Akashnain.
+\newblock Flowers are mesmerizing.
+
+\bibitem{cross_enropy}
+Rob~Di Pietro.
+\newblock A friendly introduction to cross entropy loss.
+\newblock
+  \url{https://rdipietro.github.io/friendly-intro-to-cross-entropy-loss/}, May
+  2, 2016.
+
+\bibitem{Chai_BiCos}
+Andrew~ZISSERMAN Yuning~CHAI, Victor~LEMPITSKY.
+\newblock Bicos: A bi-level co-segmentation method for image classification.
+\newblock {\em ICCV}, 2011.
+
+\bibitem{Chai_BiCos_demo}
+Andrew~ZISSERMAN Yuning~CHAI, Victor~LEMPITSKY.
+\newblock Flowers species recognition demo.
+\newblock \url{http://www.robots.ox.ac.uk/%7Evgg/research/flowers_demo/}, 2011.
+
+\end{thebibliography}

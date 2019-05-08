@@ -8,15 +8,15 @@
 \BOOKMARK [2][-]{subsection.2.2}{Algorithms and Techniques}{section.2}% 8
 \BOOKMARK [3][-]{subsubsection.2.2.1}{pictures selection and split }{subsection.2.2}% 9
 \BOOKMARK [3][-]{subsubsection.2.2.2}{image augmentation}{subsection.2.2}% 10
-\BOOKMARK [3][-]{subsubsection.2.2.3}{Deep Convolutional Neural Network and transfer learning}{subsection.2.2}% 11
-\BOOKMARK [2][-]{subsection.2.3}{Benchmark}{section.2}% 12
-\BOOKMARK [1][-]{section.3}{Methodology}{}% 13
-\BOOKMARK [2][-]{subsection.3.1}{Data Preprocessing}{section.3}% 14
-\BOOKMARK [3][-]{subsubsection.3.1.1}{Pictures scan}{subsection.3.1}% 15
-\BOOKMARK [3][-]{subsubsection.3.1.2}{Sample blacklist}{subsection.3.1}% 16
-\BOOKMARK [3][-]{subsubsection.3.1.3}{Training, validation and testing split}{subsection.3.1}% 17
-\BOOKMARK [3][-]{subsubsection.3.1.4}{Dataset loading in memory}{subsection.3.1}% 18
-\BOOKMARK [3][-]{subsubsection.3.1.5}{Image augmentation}{subsection.3.1}% 19
+\BOOKMARK [3][-]{subsubsection.2.2.3}{Deep Convolutional Neural Network}{subsection.2.2}% 11
+\BOOKMARK [3][-]{subsubsection.2.2.4}{Transfer Learning}{subsection.2.2}% 12
+\BOOKMARK [2][-]{subsection.2.3}{Benchmark}{section.2}% 13
+\BOOKMARK [1][-]{section.3}{Methodology}{}% 14
+\BOOKMARK [2][-]{subsection.3.1}{Data Preprocessing}{section.3}% 15
+\BOOKMARK [3][-]{subsubsection.3.1.1}{Sample blacklist}{subsection.3.1}% 16
+\BOOKMARK [3][-]{subsubsection.3.1.2}{Training, validation and testing split}{subsection.3.1}% 17
+\BOOKMARK [3][-]{subsubsection.3.1.3}{Dataset loading in memory}{subsection.3.1}% 18
+\BOOKMARK [3][-]{subsubsection.3.1.4}{Image augmentation}{subsection.3.1}% 19
 \BOOKMARK [2][-]{subsection.3.2}{Model Implementation}{section.3}% 20
 \BOOKMARK [3][-]{subsubsection.3.2.1}{CNN architecture}{subsection.3.2}% 21
 \BOOKMARK [3][-]{subsubsection.3.2.2}{CNN training}{subsection.3.2}% 22
